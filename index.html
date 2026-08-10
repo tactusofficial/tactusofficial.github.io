@@ -1,36 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TACTUS | Transform Ideas Into Reality</title>
+    <title>TACTUS 微光動能科技 | Transform Ideas Into Reality</title>
+    <meta name="description" content="TACTUS 微光動能科技有限公司，專注於產品設計、創新顧問、互動體驗與研發服務。">
 
-    <!-- AOS Animation CSS -->
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
 
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
             background: #000;
             color: #fff;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-            line-height: 1.6;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", Arial, sans-serif;
+            line-height: 1.65;
             overflow-x: hidden;
         }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
+        a { color: inherit; text-decoration: none; }
 
         nav {
             position: fixed;
@@ -42,38 +30,37 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(0, 0, 0, 0.72);
+            background: rgba(0,0,0,0.72);
             backdrop-filter: blur(18px);
             -webkit-backdrop-filter: blur(18px);
             z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
         }
-
-        .logo {
-            font-size: 24px;
-            font-weight: 800;
-            letter-spacing: 2px;
-            transition: all 0.3s ease;
-        }
-
-        .logo:hover {
-            text-shadow: 0 0 12px rgba(255,255,255,0.8), 0 0 28px rgba(255,255,255,0.5);
-        }
-
-        .nav-links {
+        .logo { font-size: 24px; font-weight: 800; letter-spacing: 2px; transition: all .3s ease; }
+        .logo:hover { text-shadow: 0 0 12px rgba(255,255,255,.85), 0 0 28px rgba(255,255,255,.5); }
+        .nav-right { display: flex; align-items: center; gap: 28px; }
+        .nav-links { display: flex; gap: 30px; font-size: 15px; color: #d2d2d7; }
+        .nav-links a { transition: color .3s ease; }
+        .nav-links a:hover { color: #fff; }
+        .lang-toggle {
             display: flex;
-            gap: 34px;
-            font-size: 15px;
+            gap: 8px;
+            padding: 4px;
+            border: 1px solid rgba(255,255,255,.18);
+            border-radius: 999px;
+            background: rgba(255,255,255,.05);
+        }
+        .lang-btn {
+            border: 0;
+            cursor: pointer;
             color: #d2d2d7;
+            background: transparent;
+            padding: 7px 12px;
+            border-radius: 999px;
+            font-size: 13px;
+            transition: all .25s ease;
         }
-
-        .nav-links a {
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: #ffffff;
-        }
+        .lang-btn.active { background: #fff; color: #000; }
 
         .hero {
             min-height: 100vh;
@@ -83,519 +70,262 @@
             justify-content: center;
             text-align: center;
             background:
-                radial-gradient(circle at top center, rgba(255, 255, 255, 0.16), transparent 32%),
+                radial-gradient(circle at top center, rgba(255,255,255,.16), transparent 32%),
                 linear-gradient(180deg, #000 0%, #111 55%, #000 100%);
         }
+        .hero-content { max-width: 1000px; }
+        .eyebrow { color: #a1a1a6; font-size: 19px; margin-bottom: 20px; letter-spacing: 1.5px; }
+        .hero h1 { font-size: clamp(52px, 8.5vw, 112px); line-height: 1.03; font-weight: 850; letter-spacing: -4px; margin-bottom: 30px; }
+        .hero p { max-width: 800px; margin: 0 auto 42px; font-size: clamp(20px, 2.2vw, 29px); color: #a1a1a6; }
+        .hero-buttons { display: flex; justify-content: center; gap: 18px; flex-wrap: wrap; }
+        .btn { display: inline-block; padding: 14px 30px; border-radius: 999px; font-size: 16px; transition: all .35s ease; border: 1px solid rgba(255,255,255,.32); }
+        .btn-primary { background: #fff; color: #000; }
+        .btn-secondary { background: transparent; color: #fff; }
+        .btn:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(255,255,255,.16); }
 
-        .hero-content {
-            max-width: 980px;
-        }
+        section { padding: 110px 7%; }
+        .section-header { max-width: 840px; margin-bottom: 58px; }
+        .section-header span { display: block; color: #86868b; margin-bottom: 14px; font-size: 16px; letter-spacing: .5px; }
+        .section-header h2 { font-size: clamp(36px, 5vw, 72px); line-height: 1.1; letter-spacing: -2px; margin-bottom: 22px; }
+        .section-header p { color: #a1a1a6; font-size: 21px; }
 
-        .eyebrow {
-            color: #a1a1a6;
-            font-size: 19px;
-            margin-bottom: 20px;
-            letter-spacing: 1.5px;
-        }
-
-        .hero h1 {
-            font-size: clamp(54px, 9vw, 116px);
-            line-height: 1.03;
-            font-weight: 850;
-            letter-spacing: -4px;
-            margin-bottom: 30px;
-        }
-
-        .hero p {
-            max-width: 760px;
-            margin: 0 auto 42px;
-            font-size: clamp(20px, 2.3vw, 29px);
-            color: #a1a1a6;
-        }
-
-        .hero-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 18px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 14px 30px;
-            border-radius: 999px;
-            font-size: 16px;
-            transition: all 0.35s ease;
-            border: 1px solid rgba(255, 255, 255, 0.32);
-        }
-
-        .btn-primary {
-            background: #ffffff;
-            color: #000000;
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: #ffffff;
-        }
-
-        .btn:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 18px 40px rgba(255, 255, 255, 0.16);
-        }
-
-        section {
-            padding: 110px 7%;
-        }
-
-        .section-header {
-            max-width: 800px;
-            margin-bottom: 58px;
-        }
-
-        .section-header span {
-            display: block;
-            color: #86868b;
-            margin-bottom: 14px;
-            font-size: 16px;
-            letter-spacing: 0.5px;
-        }
-
-        .section-header h2 {
-            font-size: clamp(38px, 5vw, 72px);
-            line-height: 1.08;
-            letter-spacing: -2px;
-            margin-bottom: 22px;
-        }
-
-        .section-header p {
-            color: #a1a1a6;
-            font-size: 21px;
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1.15fr 1fr;
-            gap: 48px;
-            align-items: stretch;
-        }
-
-        .about-card {
-            background: linear-gradient(145deg, #111111, #050505);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 34px;
-            padding: 48px;
-            min-height: 380px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .about-card h3 {
-            font-size: clamp(30px, 4vw, 48px);
-            line-height: 1.12;
-            margin-bottom: 22px;
-            letter-spacing: -1px;
-        }
-
-        .about-card p {
-            color: #a1a1a6;
-            font-size: 19px;
-        }
-
-        .about-points {
-            display: grid;
-            gap: 20px;
-        }
-
-        .point {
-            padding: 30px;
-            background: #111111;
-            border-radius: 26px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: all 0.35s ease;
-        }
-
-        .point:hover {
-            transform: translateY(-6px);
-            background: #181818;
-        }
-
-        .point h4 {
-            font-size: 23px;
-            margin-bottom: 8px;
-        }
-
-        .point p {
-            color: #a1a1a6;
-            font-size: 16px;
-        }
-
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
-        }
-
-        .card {
-            min-height: 270px;
-            padding: 34px;
-            background: #111111;
-            border-radius: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: all 0.42s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-12px);
-            background: #181818;
-            border-color: rgba(255, 255, 255, 0.22);
-        }
-
-        .card .number {
-            color: #86868b;
-            font-size: 14px;
-            margin-bottom: 30px;
-        }
-
-        .card h3 {
-            font-size: 26px;
-            line-height: 1.2;
-            margin-bottom: 16px;
-        }
-
-        .card p {
-            color: #a1a1a6;
-            font-size: 17px;
-        }
-
-        .case-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 26px;
-        }
-
-        .case {
-            min-height: 350px;
-            padding: 36px;
-            border-radius: 34px;
+        .vision {
             background:
-                linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02)),
-                #111111;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: all 0.42s ease;
+                radial-gradient(circle at left top, rgba(255,255,255,.12), transparent 32%),
+                #050505;
         }
+        .vision-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 34px; align-items: stretch; }
+        .vision-card, .fact-card {
+            border: 1px solid rgba(255,255,255,.1);
+            background: linear-gradient(145deg, #111, #050505);
+            border-radius: 34px;
+            padding: 44px;
+        }
+        .vision-card h3 { font-size: clamp(32px, 4vw, 54px); line-height: 1.15; margin-bottom: 20px; }
+        .vision-card p { color: #a1a1a6; font-size: 20px; }
+        .facts { display: grid; gap: 18px; }
+        .fact-row { display: flex; justify-content: space-between; gap: 18px; padding-bottom: 18px; border-bottom: 1px solid rgba(255,255,255,.08); }
+        .fact-row:last-child { border-bottom: 0; padding-bottom: 0; }
+        .fact-label { color: #86868b; }
+        .fact-value { text-align: right; color: #fff; }
 
-        .case:hover {
-            transform: scale(1.03);
-            border-color: rgba(255, 255, 255, 0.24);
-        }
+        .about-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 48px; align-items: stretch; }
+        .about-card { background: linear-gradient(145deg, #111, #050505); border: 1px solid rgba(255,255,255,.1); border-radius: 34px; padding: 48px; min-height: 380px; display: flex; flex-direction: column; justify-content: center; }
+        .about-card h3 { font-size: clamp(30px, 4vw, 48px); line-height: 1.12; margin-bottom: 22px; letter-spacing: -1px; }
+        .about-card p { color: #a1a1a6; font-size: 19px; }
+        .about-points { display: grid; gap: 20px; }
+        .point { padding: 30px; background: #111; border-radius: 26px; border: 1px solid rgba(255,255,255,.08); transition: all .35s ease; }
+        .point:hover { transform: translateY(-6px); background: #181818; }
+        .point h4 { font-size: 23px; margin-bottom: 8px; }
+        .point p { color: #a1a1a6; font-size: 16px; }
 
-        .case small {
-            color: #86868b;
-            font-size: 14px;
-        }
+        .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+        .card { min-height: 290px; padding: 34px; background: #111; border-radius: 30px; border: 1px solid rgba(255,255,255,.08); transition: all .42s ease; }
+        .card:hover { transform: translateY(-12px); background: #181818; border-color: rgba(255,255,255,.22); }
+        .card .number { color: #86868b; font-size: 14px; margin-bottom: 30px; }
+        .card h3 { font-size: 26px; line-height: 1.2; margin-bottom: 16px; }
+        .card p { color: #a1a1a6; font-size: 17px; }
 
-        .case h3 {
-            font-size: 30px;
-            line-height: 1.15;
-            margin: 18px 0 16px;
-            letter-spacing: -0.6px;
-        }
+        .case-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+        .case { min-height: 350px; padding: 36px; border-radius: 34px; background: linear-gradient(180deg, rgba(255,255,255,.1), rgba(255,255,255,.02)), #111; border: 1px solid rgba(255,255,255,.1); display: flex; flex-direction: column; justify-content: space-between; transition: all .42s ease; }
+        .case:hover { transform: scale(1.03); border-color: rgba(255,255,255,.24); }
+        .case small { color: #86868b; font-size: 14px; }
+        .case h3 { font-size: 30px; line-height: 1.15; margin: 18px 0 16px; letter-spacing: -.6px; }
+        .case p { color: #a1a1a6; font-size: 17px; }
 
-        .case p {
-            color: #a1a1a6;
-            font-size: 17px;
-        }
+        .contact { text-align: center; background: radial-gradient(circle at center, rgba(255,255,255,.14), transparent 34%), #000; }
+        .contact h2 { font-size: clamp(42px, 6vw, 82px); letter-spacing: -2px; margin-bottom: 24px; line-height: 1.08; }
+        .contact p { max-width: 720px; margin: 0 auto 38px; color: #a1a1a6; font-size: 22px; }
+        .contact-info { margin-top: 44px; color: #d2d2d7; line-height: 2; font-size: 16px; }
+        footer { padding: 42px 7%; color: #86868b; border-top: 1px solid rgba(255,255,255,.08); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; font-size: 14px; }
 
-        .contact {
-            text-align: center;
-            background:
-                radial-gradient(circle at center, rgba(255, 255, 255, 0.14), transparent 34%),
-                #000000;
-        }
-
-        .contact h2 {
-            font-size: clamp(42px, 6vw, 82px);
-            letter-spacing: -2px;
-            margin-bottom: 24px;
-            line-height: 1.08;
-        }
-
-        .contact p {
-            max-width: 680px;
-            margin: 0 auto 38px;
-            color: #a1a1a6;
-            font-size: 22px;
-        }
-
-        .contact-info {
-            margin-top: 44px;
-            color: #d2d2d7;
-            line-height: 2;
-            font-size: 16px;
-        }
-
-        footer {
-            padding: 42px 7%;
-            color: #86868b;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 16px;
-            font-size: 14px;
-        }
+        .lang-en { display: none; }
+        body.lang-en-mode .lang-zh { display: none; }
+        body.lang-en-mode .lang-en { display: inline; }
+        body.lang-en-mode div.lang-en, body.lang-en-mode p.lang-en, body.lang-en-mode h1.lang-en, body.lang-en-mode h2.lang-en, body.lang-en-mode h3.lang-en, body.lang-en-mode h4.lang-en, body.lang-en-mode span.lang-en, body.lang-en-mode small.lang-en { display: block; }
+        body.lang-en-mode .lang-zh-block { display: none; }
+        .lang-en-block { display: none; }
+        body.lang-en-mode .lang-en-block { display: block; }
 
         @media (max-width: 1100px) {
-            .cards {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .case-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .about-grid {
-                grid-template-columns: 1fr;
-            }
+            .cards { grid-template-columns: repeat(2, 1fr); }
+            .case-grid { grid-template-columns: 1fr; }
+            .about-grid, .vision-grid { grid-template-columns: 1fr; }
         }
-
-        @media (max-width: 768px) {
-            nav {
-                padding: 0 6%;
-                height: 66px;
-            }
-
-            .logo {
-                font-size: 21px;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .hero {
-                padding: 118px 6% 76px;
-            }
-
-            .hero h1 {
-                letter-spacing: -2px;
-            }
-
-            section {
-                padding: 82px 6%;
-            }
-
-            .cards {
-                grid-template-columns: 1fr;
-            }
-
-            .about-card {
-                padding: 34px;
-                min-height: auto;
-            }
-
-            .case {
-                min-height: 300px;
-            }
-
-            footer {
-                flex-direction: column;
-            }
+        @media (max-width: 820px) {
+            nav { padding: 0 6%; height: 66px; }
+            .logo { font-size: 21px; }
+            .nav-links { display: none; }
+            .lang-toggle { transform: scale(.92); transform-origin: right center; }
+            .hero { padding: 118px 6% 76px; }
+            .hero h1 { letter-spacing: -2px; }
+            section { padding: 82px 6%; }
+            .cards { grid-template-columns: 1fr; }
+            .about-card, .vision-card, .fact-card { padding: 34px; min-height: auto; }
+            .case { min-height: 300px; }
+            footer { flex-direction: column; }
+            .fact-row { flex-direction: column; }
+            .fact-value { text-align: left; }
         }
     </style>
 </head>
-
 <body>
 
     <nav data-aos="fade-down" data-aos-duration="900">
         <div class="logo">TACTUS</div>
-
-        <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#cases">Case Studies</a>
-            <a href="#contact">Contact</a>
+        <div class="nav-right">
+            <div class="nav-links">
+                <a href="#vision"><span class="lang-zh">理念</span><span class="lang-en">Vision</span></a>
+                <a href="#about"><span class="lang-zh">關於</span><span class="lang-en">About</span></a>
+                <a href="#services"><span class="lang-zh">服務</span><span class="lang-en">Services</span></a>
+                <a href="#cases"><span class="lang-zh">案例</span><span class="lang-en">Cases</span></a>
+                <a href="#contact"><span class="lang-zh">聯絡</span><span class="lang-en">Contact</span></a>
+            </div>
+            <div class="lang-toggle" aria-label="Language switcher">
+                <button class="lang-btn active" id="btnZh" type="button">中文</button>
+                <button class="lang-btn" id="btnEn" type="button">EN</button>
+            </div>
         </div>
     </nav>
 
     <header class="hero">
         <div class="hero-content">
-            <div class="eyebrow" data-aos="fade-up" data-aos-duration="900">TACTUS</div>
-
+            <div class="eyebrow" data-aos="fade-up" data-aos-duration="900">
+                <span class="lang-zh">微光動能科技</span><span class="lang-en">TACTUS</span>
+            </div>
             <h1 data-aos="fade-up" data-aos-duration="1000" data-aos-delay="150">
-                Transform Ideas Into Reality.
+                <span class="lang-zh-block">以微光驅動改變。</span>
+                <span class="lang-en-block">Transform Ideas Into Reality.</span>
             </h1>
-
             <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
-                We help organizations shape digital experiences,
-                simplify complexity, and create measurable business value.
+                <span class="lang-zh-block">TACTUS 協助組織將創意、設計與科技連結，讓想法轉化為可執行、可體驗、可衡量的成果。</span>
+                <span class="lang-en-block">TACTUS helps organizations connect ideas, design, and technology to create practical, experiential, and measurable outcomes.</span>
             </p>
-
             <div class="hero-buttons" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="450">
-                <a class="btn btn-primary" href="#services">Explore Services</a>
-                <a class="btn btn-secondary" href="#contact">Contact Us</a>
+                <a class="btn btn-primary" href="#services"><span class="lang-zh">探索服務</span><span class="lang-en">Explore Services</span></a>
+                <a class="btn btn-secondary" href="#contact"><span class="lang-zh">聯絡我們</span><span class="lang-en">Contact Us</span></a>
             </div>
         </div>
     </header>
 
+    <section id="vision" class="vision">
+        <div class="section-header" data-aos="fade-up" data-aos-duration="900">
+            <span><span class="lang-zh">Our Vision</span><span class="lang-en">Our Vision</span></span>
+            <h2><span class="lang-zh-block">微光雖小，也能成為前進的動能。</span><span class="lang-en-block">Small signals can become powerful momentum.</span></h2>
+            <p><span class="lang-zh-block">微光動能科技相信，每一個創新想法，都能透過設計、體驗與研發，成為推動產業前進的力量。</span><span class="lang-en-block">TACTUS believes every idea can become a force for progress through design, experience, and research-driven execution.</span></p>
+        </div>
+        <div class="vision-grid">
+            <div class="vision-card" data-aos="fade-right" data-aos-duration="1000">
+                <h3><span class="lang-zh-block">從概念到成果，讓創新被看見。</span><span class="lang-en-block">From concept to outcome, making innovation visible.</span></h3>
+                <p><span class="lang-zh-block">我們聚焦產品設計、互動式情境體驗、實境體感應用與研究發展服務，協助客戶將模糊想法整理成清楚方向，並逐步落地成可驗證的解決方案。</span><span class="lang-en-block">We focus on product design, interactive experiences, immersive applications, and research services, helping clients turn early ideas into clear directions and validated solutions.</span></p>
+            </div>
+            <div class="fact-card" data-aos="fade-left" data-aos-duration="1000">
+                <div class="facts">
+                    <div class="fact-row"><div class="fact-label"><span class="lang-zh">公司名稱</span><span class="lang-en">Company</span></div><div class="fact-value"><span class="lang-zh">微光動能科技有限公司</span><span class="lang-en">TACTUS</span></div></div>
+                    <div class="fact-row"><div class="fact-label"><span class="lang-zh">成立時間</span><span class="lang-en">Founded</span></div><div class="fact-value">2026</div></div>
+                    <div class="fact-row"><div class="fact-label"><span class="lang-zh">所在地</span><span class="lang-en">Location</span></div><div class="fact-value"><span class="lang-zh">桃園，台灣</span><span class="lang-en">Taoyuan, Taiwan</span></div></div>
+                    <div class="fact-row"><div class="fact-label"><span class="lang-zh">核心領域</span><span class="lang-en">Focus</span></div><div class="fact-value"><span class="lang-zh">產品設計 / 互動體驗 / 研發服務</span><span class="lang-en">Product Design / Experience / R&D</span></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="about">
         <div class="section-header" data-aos="fade-up" data-aos-duration="900">
-            <span>About Us</span>
-            <h2>Built for clarity, growth, and execution.</h2>
-            <p>
-                TACTUS is a modern business and technology partner focused on helping
-                organizations turn strategy into practical solutions.
-            </p>
+            <span><span class="lang-zh">About Us</span><span class="lang-en">About Us</span></span>
+            <h2><span class="lang-zh-block">連結創意、技術與商業價值。</span><span class="lang-en-block">Connecting creativity, technology, and business value.</span></h2>
+            <p><span class="lang-zh-block">TACTUS 以清晰策略與務實執行，協助企業面對產品、體驗與創新挑戰。</span><span class="lang-en-block">TACTUS helps organizations address product, experience, and innovation challenges with clarity and execution.</span></p>
         </div>
-
         <div class="about-grid">
             <div class="about-card" data-aos="fade-right" data-aos-duration="1000">
-                <h3>We make complex challenges easier to act on.</h3>
-                <p>
-                    From idea validation to digital execution, TACTUS works with teams
-                    to define direction, improve workflows, and build experiences that
-                    are clear, scalable, and effective.
-                </p>
+                <h3><span class="lang-zh-block">讓複雜問題，變成可以行動的解法。</span><span class="lang-en-block">Making complex challenges easier to act on.</span></h3>
+                <p><span class="lang-zh-block">從需求定義、概念驗證到體驗規劃，TACTUS 協助團隊建立方向、優化流程，並打造更清楚、更具延展性的成果。</span><span class="lang-en-block">From requirement definition and concept validation to experience planning, TACTUS helps teams align direction, improve workflows, and create scalable outcomes.</span></p>
             </div>
-
             <div class="about-points">
-                <div class="point" data-aos="fade-left" data-aos-duration="900" data-aos-delay="100">
-                    <h4>Innovation</h4>
-                    <p>Explore better ways to solve real business problems.</p>
-                </div>
-
-                <div class="point" data-aos="fade-left" data-aos-duration="900" data-aos-delay="200">
-                    <h4>Strategy</h4>
-                    <p>Turn goals into structured, practical action plans.</p>
-                </div>
-
-                <div class="point" data-aos="fade-left" data-aos-duration="900" data-aos-delay="300">
-                    <h4>Execution</h4>
-                    <p>Deliver solutions with speed, quality, and measurable results.</p>
-                </div>
+                <div class="point" data-aos="fade-left" data-aos-duration="900" data-aos-delay="100"><h4><span class="lang-zh">創新 Innovation</span><span class="lang-en">Innovation</span></h4><p><span class="lang-zh-block">探索解決真實問題的新方式。</span><span class="lang-en-block">Explore better ways to solve real problems.</span></p></div>
+                <div class="point" data-aos="fade-left" data-aos-duration="900" data-aos-delay="200"><h4><span class="lang-zh">策略 Strategy</span><span class="lang-en">Strategy</span></h4><p><span class="lang-zh-block">將目標轉化為可執行的路徑。</span><span class="lang-en-block">Turn goals into structured action plans.</span></p></div>
+                <div class="point" data-aos="fade-left" data-aos-duration="900" data-aos-delay="300"><h4><span class="lang-zh">執行 Execution</span><span class="lang-en">Execution</span></h4><p><span class="lang-zh-block">以速度、品質與成果導向完成交付。</span><span class="lang-en-block">Deliver with speed, quality, and measurable results.</span></p></div>
             </div>
         </div>
     </section>
 
     <section id="services">
         <div class="section-header" data-aos="fade-up" data-aos-duration="900">
-            <span>Services</span>
-            <h2>What we do.</h2>
-            <p>
-                We provide focused services for organizations that want to improve,
-                modernize, and grow.
-            </p>
+            <span><span class="lang-zh">Services</span><span class="lang-en">Services</span></span>
+            <h2><span class="lang-zh-block">我們提供的服務。</span><span class="lang-en-block">What we do.</span></h2>
+            <p><span class="lang-zh-block">聚焦產品設計、創新策略、互動體驗與研究發展，協助想法落地。</span><span class="lang-en-block">We focus on product design, innovation strategy, interactive experiences, and research services.</span></p>
         </div>
-
         <div class="cards">
-            <div class="card" data-aos="zoom-in" data-aos-duration="850" data-aos-delay="100">
-                <div class="number">01</div>
-                <h3>Business Consulting</h3>
-                <p>Define goals, improve processes, and create practical growth strategies.</p>
-            </div>
-
-            <div class="card" data-aos="zoom-in" data-aos-duration="850" data-aos-delay="200">
-                <div class="number">02</div>
-                <h3>Digital Transformation</h3>
-                <p>Modernize operations and enable smarter, data-driven decision making.</p>
-            </div>
-
-            <div class="card" data-aos="zoom-in" data-aos-duration="850" data-aos-delay="300">
-                <div class="number">03</div>
-                <h3>Technology Solutions</h3>
-                <p>Design digital platforms and customer experiences that scale.</p>
-            </div>
-
-            <div class="card" data-aos="zoom-in" data-aos-duration="850" data-aos-delay="400">
-                <div class="number">04</div>
-                <h3>Training & Workshops</h3>
-                <p>Build internal capabilities through practical learning programs.</p>
-            </div>
+            <div class="card" data-aos="zoom-in" data-aos-duration="850" data-aos-delay="100"><div class="number">01</div><h3><span class="lang-zh">產品設計</span><span class="lang-en">Product Design</span></h3><p><span class="lang-zh-block">從概念發想到產品落地，打造兼具美感、功能與使用者價值的解決方案。</span><span class="lang-en-block">Turn ideas into practical solutions with usability, function, and design value.</span></p></div>
+            <div class="card" data-aos="zoom-in" data-aos-duration="850" data-aos-delay="200"><div class="number">02</div><h3><span class="lang-zh">創新顧問</span><span class="lang-en">Innovation Consulting</span></h3><p><span class="lang-zh-block">協助企業探索新機會，建立清楚且可執行的創新策略。</span><span class="lang-en-block">Help organizations explore opportunities and build actionable innovation strategies.</span></p></div>
+            <div class="card" data-aos="zoom-in" data-aos-duration="850" data-aos-delay="300"><div class="number">03</div><h3><span class="lang-zh">互動體驗</span><span class="lang-en">Digital Experience</span></h3><p><span class="lang-zh-block">規劃互動式情境與體感體驗，提升參與度與品牌感受。</span><span class="lang-en-block">Design interactive and immersive experiences that improve engagement and brand value.</span></p></div>
+            <div class="card" data-aos="zoom-in" data-aos-duration="850" data-aos-delay="400"><div class="number">04</div><h3><span class="lang-zh">研究發展</span><span class="lang-en">Research & Development</span></h3><p><span class="lang-zh-block">透過研究、驗證與迭代，加速新產品與新服務形成。</span><span class="lang-en-block">Accelerate new products and services through research, validation, and iteration.</span></p></div>
         </div>
     </section>
 
     <section id="cases">
         <div class="section-header" data-aos="fade-up" data-aos-duration="900">
-            <span>Case Studies</span>
-            <h2>Selected work.</h2>
-            <p>
-                A snapshot of how TACTUS helps teams create better outcomes.
-            </p>
+            <span><span class="lang-zh">Case Studies</span><span class="lang-en">Case Studies</span></span>
+            <h2><span class="lang-zh-block">精選方向。</span><span class="lang-en-block">Selected directions.</span></h2>
+            <p><span class="lang-zh-block">以下為 TACTUS 官網可持續擴充的案例型內容架構。</span><span class="lang-en-block">A flexible case structure for future TACTUS project highlights.</span></p>
         </div>
-
         <div class="case-grid">
-            <div class="case" data-aos="fade-up" data-aos-duration="900" data-aos-delay="100">
-                <div>
-                    <small>Enterprise</small>
-                    <h3>Workflow Modernization</h3>
-                    <p>Improved internal collaboration and reduced operational complexity.</p>
-                </div>
-                <small>Efficiency Improvement</small>
-            </div>
-
-            <div class="case" data-aos="fade-up" data-aos-duration="900" data-aos-delay="220">
-                <div>
-                    <small>Digital Experience</small>
-                    <h3>Customer Journey Design</h3>
-                    <p>Created a more intuitive experience to improve engagement and retention.</p>
-                </div>
-                <small>Experience Design</small>
-            </div>
-
-            <div class="case" data-aos="fade-up" data-aos-duration="900" data-aos-delay="340">
-                <div>
-                    <small>Optimization</small>
-                    <h3>Process Improvement</h3>
-                    <p>Delivered measurable improvements in productivity and service quality.</p>
-                </div>
-                <small>Performance Growth</small>
-            </div>
+            <div class="case" data-aos="fade-up" data-aos-duration="900" data-aos-delay="100"><div><small><span class="lang-zh">Product</span><span class="lang-en">Product</span></small><h3><span class="lang-zh">產品概念驗證</span><span class="lang-en">Concept Validation</span></h3><p><span class="lang-zh-block">協助早期想法進行需求整理、樣貌規劃與可行性評估。</span><span class="lang-en-block">Support early-stage ideas with requirement analysis, concept planning, and feasibility review.</span></p></div><small>Design Thinking</small></div>
+            <div class="case" data-aos="fade-up" data-aos-duration="900" data-aos-delay="220"><div><small><span class="lang-zh">Experience</span><span class="lang-en">Experience</span></small><h3><span class="lang-zh">互動體驗設計</span><span class="lang-en">Experience Design</span></h3><p><span class="lang-zh-block">設計更直覺的互動流程，提升使用者參與與品牌印象。</span><span class="lang-en-block">Create intuitive interaction flows that improve engagement and brand perception.</span></p></div><small>Interactive Journey</small></div>
+            <div class="case" data-aos="fade-up" data-aos-duration="900" data-aos-delay="340"><div><small><span class="lang-zh">Research</span><span class="lang-en">Research</span></small><h3><span class="lang-zh">研發與迭代</span><span class="lang-en">Research Iteration</span></h3><p><span class="lang-zh-block">透過研究測試與反覆修正，讓方案更接近真實需求。</span><span class="lang-en-block">Use research, testing, and iteration to align solutions with real-world needs.</span></p></div><small>R&D Process</small></div>
         </div>
     </section>
 
     <section id="contact" class="contact">
-        <h2 data-aos="fade-up" data-aos-duration="900">Let's work together.</h2>
-
-        <p data-aos="fade-up" data-aos-duration="900" data-aos-delay="150">
-            Interested in learning how TACTUS can support your organization?
-            We would love to hear from you.
-        </p>
-
-        <div data-aos="zoom-in" data-aos-duration="900" data-aos-delay="300">
-            <a class="btn btn-primary" href="mailto:hello@tactus.com">Contact Us</a>
-        </div>
-
+        <h2 data-aos="fade-up" data-aos-duration="900"><span class="lang-zh-block">一起創造有意義的成果。</span><span class="lang-en-block">Let's build something meaningful.</span></h2>
+        <p data-aos="fade-up" data-aos-duration="900" data-aos-delay="150"><span class="lang-zh-block">如果您想了解 TACTUS 如何協助產品設計、互動體驗或創新研發，歡迎與我們聯繫。</span><span class="lang-en-block">If you would like to learn how TACTUS can support product design, experience planning, or innovation R&D, contact us.</span></p>
+        <div data-aos="zoom-in" data-aos-duration="900" data-aos-delay="300"><a class="btn btn-primary" href="mailto:tactus2026@gmail.com"><span class="lang-zh">聯絡我們</span><span class="lang-en">Contact Us</span></a></div>
         <div class="contact-info" data-aos="fade-up" data-aos-duration="900" data-aos-delay="420">
-            <div>Email: hello@tactus.com</div>
-            <div>Location: Taiwan</div>
+            <div>Email: tactus2026@gmail.com</div>
+            <div><span class="lang-zh">地點：桃園，台灣</span><span class="lang-en">Location: Taoyuan, Taiwan</span></div>
         </div>
     </section>
 
     <footer data-aos="fade-up" data-aos-duration="800">
         <div>TACTUS</div>
-        <div>Transform Ideas Into Reality</div>
+        <div><span class="lang-zh">微光動能科技有限公司</span><span class="lang-en">Transform Ideas Into Reality</span></div>
         <div>&copy; 2026 TACTUS. All Rights Reserved.</div>
     </footer>
 
-    <!-- AOS Animation JavaScript -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        const body = document.body;
+        const btnZh = document.getElementById('btnZh');
+        const btnEn = document.getElementById('btnEn');
+
+        function setLanguage(lang) {
+            if (lang === 'en') {
+                body.classList.add('lang-en-mode');
+                btnEn.classList.add('active');
+                btnZh.classList.remove('active');
+                document.documentElement.lang = 'en';
+                localStorage.setItem('tactusLang', 'en');
+            } else {
+                body.classList.remove('lang-en-mode');
+                btnZh.classList.add('active');
+                btnEn.classList.remove('active');
+                document.documentElement.lang = 'zh-Hant';
+                localStorage.setItem('tactusLang', 'zh');
+            }
+            if (window.AOS) { AOS.refreshHard(); }
+        }
+
+        btnZh.addEventListener('click', function() { setLanguage('zh'); });
+        btnEn.addEventListener('click', function() { setLanguage('en'); });
+
+        const savedLang = localStorage.getItem('tactusLang');
+        if (savedLang === 'en') { setLanguage('en'); }
+
         if (window.AOS) {
-            AOS.init({
-                once: true,
-                duration: 900,
-                easing: "ease-out-cubic",
-                offset: 120
-            });
+            AOS.init({ once: true, duration: 900, easing: 'ease-out-cubic', offset: 120 });
         } else {
-            console.warn("AOS library was not loaded. Please check the CDN connection.");
+            console.warn('AOS library was not loaded. Please check the CDN connection.');
         }
     </script>
-
 </body>
 </html>
