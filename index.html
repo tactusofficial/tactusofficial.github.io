@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TACTUS | Transform Ideas Into Reality</title>
 
     <!-- AOS Animation CSS -->
-    https://unpkg.com/aos@2.3.1/dist/aos.css
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
 
     <style>
         * {
@@ -416,10 +416,10 @@
         <div class="logo">TACTUS</div>
 
         <div class="nav-links">
-            #aboutAbout</a>
-            #servicesServices</a>
-            #casesCase Studies</a>
-            #contactContact</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#cases">Case Studies</a>
+            <a href="#contact">Contact</a>
         </div>
     </nav>
 
@@ -437,8 +437,8 @@
             </p>
 
             <div class="hero-buttons" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="450">
-                #servicesExplore Services</a>
-                #contactContact Us</a>
+                <a class="btn btn-primary" href="#services">Explore Services</a>
+                <a class="btn btn-secondary" href="#contact">Contact Us</a>
             </div>
         </div>
     </header>
@@ -567,7 +567,7 @@
         </p>
 
         <div data-aos="zoom-in" data-aos-duration="900" data-aos-delay="300">
-            hello@tactus.comContact Us</a>
+            <a class="btn btn-primary" href="mailto:hello@tactus.com">Contact Us</a>
         </div>
 
         <div class="contact-info" data-aos="fade-up" data-aos-duration="900" data-aos-delay="420">
@@ -579,18 +579,22 @@
     <footer data-aos="fade-up" data-aos-duration="800">
         <div>TACTUS</div>
         <div>Transform Ideas Into Reality</div>
-        <div>© 2026 TACTUS. All Rights Reserved.</div>
+        <div>&copy; 2026 TACTUS. All Rights Reserved.</div>
     </footer>
 
     <!-- AOS Animation JavaScript -->
-    https://unpkg.com/aos@2.3.1/dist/aos.jsscript>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({
-            once: true,
-            duration: 900,
-            easing: "ease-out-cubic",
-            offset: 120
-        });
+        if (window.AOS) {
+            AOS.init({
+                once: true,
+                duration: 900,
+                easing: "ease-out-cubic",
+                offset: 120
+            });
+        } else {
+            console.warn("AOS library was not loaded. Please check the CDN connection.");
+        }
     </script>
 
 </body>
